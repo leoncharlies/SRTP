@@ -58,6 +58,6 @@ def draw_lines_from_csv(csv_file, output_folder, img_width=8000, img_height=8000
         print(f"已保存图像: {output_path}")
 
 if __name__ == '__main__':
-    csv_file_path = 'origindata/road_cor.csv'  
-    output_folder_path = '241111/output_images'  
+    csv_file_path = '../origindata/road_cor.csv'  
+    output_folder_path = '../241111/output_images'  
     draw_lines_from_csv(csv_file_path, output_folder_path)
