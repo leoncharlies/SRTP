@@ -28,7 +28,7 @@ matches = bf.match(descriptors1, descriptors2)
 # 根据距离排序匹配点，距离越小越好
 matches = sorted(matches, key=lambda x: x.distance)
 
-num_good_matches = 50 #选择前50个匹配点
+num_good_matches = 100 #选择前50个匹配点
 
 good_matches = matches[:num_good_matches]
 
