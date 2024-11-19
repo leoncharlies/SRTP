@@ -2,8 +2,8 @@ import cv2
 import numpy as np
 
 # 读取两张图像
-img1 = cv2.imread('../241111/10-10-1-01.png', cv2.IMREAD_GRAYSCALE)
-img2 = cv2.imread('../241111/10-10-1-02.png', cv2.IMREAD_GRAYSCALE)
+img1 = cv2.imread('241111/10-10-1-01.png', cv2.IMREAD_GRAYSCALE)
+img2 = cv2.imread('241111/10-10-1-02.png', cv2.IMREAD_GRAYSCALE)
 
 # 检查图像是否成功加载
 if img1 is None or img2 is None:
@@ -28,7 +28,7 @@ matches = bf.match(descriptors1, descriptors2)
 # 根据距离排序匹配点，距离越小越好
 matches = sorted(matches, key=lambda x: x.distance)
 
-num_good_matches = 100 #选择前50个匹配点
+num_good_matches = 1000 #选择前50个匹配点
 
 good_matches = matches[:num_good_matches]
 

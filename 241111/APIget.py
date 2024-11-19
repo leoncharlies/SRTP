@@ -13,16 +13,15 @@ def get_traffic_status(lat, lon):
     url = f'https://restapi.amap.com/v3/traffic/status/rectangle?rectangle={rectangle}&key={apiKey}'
     try:
         response = requests.get(url)
-        response.raise_for_status()  # 如果请求失败，抛出异常
+        response.raise_for_status() 
 
         data = response.json()
-        
-        # 打印返回的数据结构
+
         print("返回的数据结构: ", data)
 
         if data['status'] == '1':  # 查询成功
             print("拥堵状况查询成功")
-            # 检查 'trafficinfo' 和 'roads' 是否存在
+
             if 'trafficinfo' in data and 'roads' in data['trafficinfo']:
                 for road in data['trafficinfo']['roads']:
                     print(f"道路名称: {road['name']}")
@@ -35,5 +34,4 @@ def get_traffic_status(lat, lon):
     except requests.exceptions.RequestException as e:
         print(f"请求出错: {e}")
 
-# 使用示例，替换为实际的经纬度坐标
 get_traffic_status(30.609455, 104.030356)

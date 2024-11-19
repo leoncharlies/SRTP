@@ -83,8 +83,8 @@ def resizeimg(img,scale):
 
 def main():
     # 1. 读取图像
-    img1 = cv2.imread('10-10-1-01.png')  # 你的第一张图片（绿色线条的地图）
-    img2 = cv2.imread('10-10-1-02.png')  # 你的第二张图片（黑白线条图）
+    img1 = cv2.imread('241111/10-10-1-01.png')  # 你的第一张图片（绿色线条的地图）
+    img2 = cv2.imread('241111/10-10-1-02.png')  # 你的第二张图片（黑白线条图）
     
     img1=resizeimg(img1,0.5)
     img2=resizeimg(img2,0.5)

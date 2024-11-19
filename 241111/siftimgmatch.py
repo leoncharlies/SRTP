@@ -2,8 +2,8 @@ import cv2
 import numpy as np
 
 # 读取两张图像
-img1 = cv2.imread('../241111/10-10-1-01.png', cv2.IMREAD_GRAYSCALE)  # 场景图像
-img2 = cv2.imread('../241111/10-10-1-02.png', cv2.IMREAD_GRAYSCALE)  # 包含道路的图像
+img1 = cv2.imread('241111/10-10-1-01.png', cv2.IMREAD_GRAYSCALE)  # 场景图像
+img2 = cv2.imread('241111/10-10-1-02.png', cv2.IMREAD_GRAYSCALE)  # 包含道路的图像
 
 # 检查图像是否成功加载
 if img1 is None or img2 is None:
