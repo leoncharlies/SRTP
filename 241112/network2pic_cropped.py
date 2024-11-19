@@ -61,8 +61,8 @@ if __name__ == '__main__':
     print(f"完整图像已保存到 {output_image_path}")
 
     # 截取指定范围的图片
-    top_right_coords = (30.61543537338345, 103.92884639248257)
-    bottom_left_coords = (30.605315160414357, 103.91554800018673)
-    cropped_img = crop_image_by_coordinates(img, top_right_coords, bottom_left_coords)
-    cropped_img.save(cropped_output_path)
-    print(f"裁剪后的图像已保存到 {cropped_output_path}")
+    # top_right_coords = (30.61543537338345, 103.92884639248257)
+    # bottom_left_coords = (30.605315160414357, 103.91554800018673)
+    # cropped_img = crop_image_by_coordinates(img, top_right_coords, bottom_left_coords)
+    # cropped_img.save(cropped_output_path)
+    # print(f"裁剪后的图像已保存到 {cropped_output_path}")
