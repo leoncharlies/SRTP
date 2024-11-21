@@ -106,4 +106,4 @@ def sift_match_ignore_gray(image1_path, image2_path, output_path='sift_matching_
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-sift_match_only_with_resize('241119/001_reverse.png', '241119/002.png',output_path='241119/sift_match.png')
+sift_match_only_with_resize('241119/img_list/001_resize.png', '241119/img_list/002_resize.png',output_path='241119/img_list/sift_match_resize.png')

@@ -13,5 +13,21 @@ def ignore_gray(img_path):
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
+def resize_img(img01_path,img02_path):
+    img01=cv2.imread(img01_path)
+    img02=cv2.imread(img02_path)
+    height1, width1 = img01.shape[:2]
+    height2, width2 = img02.shape[:2]
+    target_size=(max(width1,width2),max(height1,height2))
+    img01=cv2.resize(img01,target_size,interpolation=cv2.INTER_AREA)
+    img02=cv2.resize(img02,target_size,interpolation=cv2.INTER_AREA)
+    cv2.imwrite("241119/img_list/001_resize.png",img01)
+    cv2.imwrite("241119/img_list/002_resize.png",img02)
 
-ignore_gray("241119/001.png")
+def roberts_edge_detect(img_path):
+    pass
+
+
+
+# resize_img("241119/img_list/001_reverse.png","241119/img_list/002.png")
+# ignore_gray("241119/001.png")
