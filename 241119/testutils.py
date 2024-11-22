@@ -1,5 +1,10 @@
 import numpy as np
 import cv2
+import matplotlib.pyplot as plt
+import csv
+import os
+import shutil
+import re
 
 def ignore_gray(img_path):
 
@@ -24,10 +29,50 @@ def resize_img(img01_path,img02_path):
     cv2.imwrite("241119/img_list/001_resize.png",img01)
     cv2.imwrite("241119/img_list/002_resize.png",img02)
 
-def roberts_edge_detect(img_path):
-    pass
+def canny_edge_detect(img_path):
+    img=cv2.imread(img_path)
+    low_threshold=50
+    high_threshold=150
+    edges=cv2.Canny(img,low_threshold,high_threshold)
+    plt.figure(figsize=(10, 10))
+    plt.subplot(1, 2, 1)
+    plt.title("Original Image")
+    plt.imshow(img, cmap="gray")
+    plt.axis("off")
+
+    plt.subplot(1, 2, 2)
+    plt.title("Canny Edge Detection")
+    plt.imshow(edges, cmap="gray")
+    plt.axis("off")
+
+    plt.tight_layout()
+    plt.show()
+
+def read_and_get_name(folder_path):
+    file_data = []
+
+    for filename in os.listdir(folder_path):
+        if filename.endswith('.png'):
+            pattern = r'([\d-]+)-(\([\d., ]+\))-(\([\d., ]+\))'
+            match = re.match(pattern, filename)
+            
+            if match:
+                id_part = match.group(1)
+                righttop = match.group(2)
+                leftbottom = match.group(3)
+
+                file_data.append([id_part, righttop, leftbottom])
+
+    output_file = '241119/output_list/img_info.csv'
+    with open(output_file, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.writer(f)
+        writer.writerow(['id', 'righttop', 'leftbottom'])
+        writer.writerows(file_data)
+
+    print(f"数据已保存到 {output_file}")
 
 
-
+read_and_get_name("origindata/2024-09-26 00-27")
+#canny_edge_detect("241119/img_list/001_resize.png")
 # resize_img("241119/img_list/001_reverse.png","241119/img_list/002.png")
 # ignore_gray("241119/001.png")
